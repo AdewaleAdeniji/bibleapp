@@ -7,6 +7,9 @@ if('serviceWorker' in navigator){
 		//console.log("serviceworker not registered"+err);
 	})
 }
+window.setTimeout(()=>{
+	$(".loader").hide(200);
+},5000);
 	var arr = ["Gen", "Exo", "Lev", "Num", "Deu", "Jos", "Jud", "Ruth", "1 Sam", "2 Sam", "1st Kings", "2nd Kings", "1st Chron", "2nd Chron", "Ezra", "Neh", "Est", "Job", "Psm", "Prov", "Eccl", "SoS", "Isa", "Jer", "Lam", "Eze", "Dan", "Hos", "Joel", "Amos", "Oba", "Jon", "Mic", "Nah", "Haba", "Zeph", "Hag", "Zech", "Mal", "Mat", "Mark", "Luke", "John", "Acts", "Rom", "1 Cor", "2 Cor", "Gal", "Eph", "Phi", "Col", "1st Thes", "2nd Thes", "1st Tim", "2nd Tim", "Titus", "Phil", "Heb", "James", "1 Pet", "2 Pet", "1 John", "2 John", "3 John", "Jude", "Rev"];
 	//var bible = ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','']
 	// document.querySelectorAll("td").forEach((item)=>{
@@ -16,7 +19,7 @@ if('serviceWorker' in navigator){
 	var lastbook = localStorage.lastbook;
 	if(lastbook==undefined||lastbook==null){
 		//use 0.json:1
-		openbook("0.json:1");
+		openbook("0.json:0");
 	}
 	else {
 		//use this.json:2
@@ -34,7 +37,8 @@ if('serviceWorker' in navigator){
 			var chapters = data.chapters;
 			var lent = chapters.length+1;
 			var book = bible.book;
-				let rt = parseInt(inside)+1
+				let rt = parseInt(inside)+1;
+				console.log(inside,rt);
 				document.getElementById("titletext").innerHTML=book+'<i> '+rt+'</i>';
 				var c = bible.chapters[inside];
 				//console.log(c);
@@ -49,7 +53,8 @@ if('serviceWorker' in navigator){
 				
 			})
 		.catch((err)=>{
-			openbook("0.json:1");
+			console.log(err);
+			openbook("0.json:0");
 		})
 	
 	}
@@ -191,42 +196,42 @@ if('serviceWorker' in navigator){
 	})
 
 function notifyM(e,a) {
-//     if (!window.Notification) {
-//         console.log('Browser does not support notifications.');
-//     } else {
-//         // check if permission is already granted
-//         if (Notification.permission === 'granted') {
-//             // show notification here
-//             var notify = new Notification(e, {
-//                          body: a,
-//                         icon: 'images/icon.png',
-//                         badge:"2",
-//                         onclick:function(){
-//                         	console.log("clicked");
-//                         }
-//                     });
-//              //console.log(notify);
-//         } else {
-//             // request permission from user
-//             Notification.requestPermission().then(function (p) {
-//                 if (p === 'granted') {
-//                     // show notification here
-//                     var notify = new Notification(e, {
-//                        body: a,
-//                         icon: 'images/icon.png',
-//                         badge:"2",
-//                         onclick:function(){
-//                         	console.log("clicked");
-//                         }
+    // if (!window.Notification) {
+    //     console.log('Browser does not support notifications.');
+    // } else {
+    //     // check if permission is already granted
+    //     if (Notification.permission === 'granted') {
+    //         // show notification here
+    //         var notify = new Notification(e, {
+    //                      body: a,
+    //                     icon: 'images/icon.png',
+    //                     badge:"2",
+    //                     onclick:function(){
+    //                     	console.log("clicked");
+    //                     }
+    //                 });
+    //          //console.log(notify);
+    //     } else {
+    //         // request permission from user
+    //         Notification.requestPermission().then(function (p) {
+    //             if (p === 'granted') {
+    //                 // show notification here
+    //                 var notify = new Notification(e, {
+    //                    body: a,
+    //                     icon: 'images/icon.png',
+    //                     badge:"2",
+    //                     onclick:function(){
+    //                     	console.log("clicked");
+    //                     }
 
-//                     });
-//                       //  console.log(notify);
-//                 } else {
-//                     console.log('User blocked notifications.');
-//                 }
-//             }).catch(function (err) {
-//                 console.error(err);
-//             });
-//         }
-//     }
+    //                 });
+    //                   //  console.log(notify);
+    //             } else {
+    //                 console.log('User blocked notifications.');
+    //             }
+    //         }).catch(function (err) {
+    //             console.error(err);
+    //         });
+    //     }
+    // }
 }
