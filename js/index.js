@@ -196,42 +196,42 @@ window.setTimeout(()=>{
 	})
 
 function notifyM(e,a) {
-    if (!window.Notification) {
-        console.log('Browser does not support notifications.');
-    } else {
-        // check if permission is already granted
-        if (Notification.permission === 'granted') {
-            // show notification here
-            var notify = new Notification(e, {
-                         body: a,
-                        icon: 'images/icon.png',
-                        badge:"2",
-                        onclick:function(){
-                        	console.log("clicked");
-                        }
-                    });
-             //console.log(notify);
-        } else {
-            // request permission from user
-            Notification.requestPermission().then(function (p) {
-                if (p === 'granted') {
-                    // show notification here
-                    var notify = new Notification(e, {
-                       body: a,
-                        icon: 'images/icon.png',
-                        badge:"2",
-                        onclick:function(){
-                        	console.log("clicked");
-                        }
+    // if (!window.Notification) {
+    //     console.log('Browser does not support notifications.');
+    // } else {
+    //     // check if permission is already granted
+    //     if (Notification.permission === 'granted') {
+    //         // show notification here
+    //         var notify = new Notification(e, {
+    //                      body: a,
+    //                     icon: 'images/icon.png',
+    //                     badge:"2",
+    //                     onclick:function(){
+    //                     	console.log("clicked");
+    //                     }
+    //                 });
+    //          //console.log(notify);
+    //     } else {
+    //         // request permission from user
+    //         Notification.requestPermission().then(function (p) {
+    //             if (p === 'granted') {
+    //                 // show notification here
+    //                 var notify = new Notification(e, {
+    //                    body: a,
+    //                     icon: 'images/icon.png',
+    //                     badge:"2",
+    //                     onclick:function(){
+    //                     	console.log("clicked");
+    //                     }
 
-                    });
-                      //  console.log(notify);
-                } else {
-                    console.log('User blocked notifications.');
-                }
-            }).catch(function (err) {
-                console.error(err);
-            });
-        }
-    }
+    //                 });
+    //                   //  console.log(notify);
+    //             } else {
+    //                 console.log('User blocked notifications.');
+    //             }
+    //         }).catch(function (err) {
+    //             console.error(err);
+    //         });
+    //     }
+    // }
 }
