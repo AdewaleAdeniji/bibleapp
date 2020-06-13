@@ -30,6 +30,9 @@
 	animation: anim 7.5s ;
 	transition: 5s;
 }
+body{
+	background: #000;
+}
 @keyframes anim{
 	0%{
 		width: 10%;
@@ -85,7 +88,7 @@
 }
 .all .verses{
 	margin-top: 5.3%;
-
+	color: #fff;
 }
 .verses .verse{
 	font-family: Lato;
